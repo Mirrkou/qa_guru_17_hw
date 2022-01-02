@@ -33,7 +33,7 @@ public class RestTest {
 
     @Test
     @DisplayName("Successful add $100 Physical Gift Card to wishlist (API)")
-    void addGiftCardToWishlist() {
+    void add100GiftCardToWishlist() {
         String body = "giftcard_4.RecipientName=Ivan&giftcard_4.SenderName=Oleg&giftcard_4.Message=Surprise&addtocart_4.EnteredQuantity=1";
         step("Add gift card to wishlist", () -> {
             given()
