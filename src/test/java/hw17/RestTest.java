@@ -4,6 +4,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static filters.CustomLogFilter.customLogFilter;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.Is.is;
@@ -37,6 +38,7 @@ public class RestTest {
         String body = "giftcard_4.RecipientName=Ivan&giftcard_4.SenderName=Oleg&giftcard_4.Message=Surprise&addtocart_4.EnteredQuantity=1";
         step("Add gift card to wishlist", () -> {
             given()
+                    .filter(customLogFilter().withCustomTemplates())
                     .contentType("application/x-www-form-urlencoded; charset=UTF-8")
                     .body(body)
                     .when()
